@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<StackPane prefHeight="634.0" prefWidth="900" style="-fx-background-color: 000;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cicor.Controllers.PrinterConfigController">
+
+    <!-- Background avec gradient -->
+    <Rectangle fill="WHITE" height="564.0" styleClass="background-gradient" width="900" />
+    
+    <!-- Container principal -->
+    <VBox spacing="0" styleClass="main-container">
+        
+        <!-- Header moderne -->
+        <HBox alignment="CENTER_LEFT" prefHeight="73.0" prefWidth="900.0" spacing="20" style="-fx-background-color: #113F67;" styleClass="header">
+            <HBox alignment="CENTER_LEFT" prefHeight="72.0" prefWidth="1193.0" spacing="15" styleClass="header-left">
+                <ImageView fitHeight="46.0" fitWidth="104.0" preserveRatio="true" styleClass="header-logo">
+                    <image>
+                        <Image url="@../images/logo-cicor.png" />
+                    </image>
+               <HBox.margin>
+                  <Insets bottom="5.0" left="30.0" right="250.0" top="5.0" />
+               </HBox.margin>
+                </ImageView>
+                 <Label styleClass="company-subtitle" text="Configuration Imprimante" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            </HBox>
+        </HBox>
+        
+        <!-- Contenu principal -->
+        <VBox prefHeight="577.0" prefWidth="900.0" spacing="30" styleClass="content-area" VBox.vgrow="ALWAYS">
+            
+            <!-- En-tête de la page -->
+            <VBox alignment="CENTER" prefHeight="82.0" prefWidth="900.0" spacing="10" styleClass="page-header">
+                <Label styleClass="page-title" text="🖨️ Configuration de l'Imprimante">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font></Label>
+                <Label styleClass="page-subtitle" text="Configurez les paramètres de votre imprimante réseau" />
+            </VBox>
+            
+            <!-- Configuration principale -->
+            <HBox alignment="TOP_CENTER" spacing="30" styleClass="config-container">
+                
+                <!-- Formulaire de configuration -->
+                <VBox prefHeight="365.0" prefWidth="400" spacing="25" styleClass="config-form">
+                    <Label styleClass="section-title" text="📋 Paramètres de Base" />
+                    
+                    <GridPane alignment="CENTER" hgap="20" prefHeight="97.0" prefWidth="400.0" styleClass="form-grid" vgap="20">
+                        
+                        <!-- Adresse IP -->
+                        <VBox prefHeight="17.0" prefWidth="149.0" spacing="8" styleClass="form-field" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                            <Label styleClass="field-label" text="Adresse IP" />
+                            <TextField fx:id="printerIPField" promptText="192.168.1.100" styleClass="input-field" />
+                        </VBox>
+                        
+                        <!-- Port -->
+                        <VBox prefHeight="31.0" prefWidth="149.0" spacing="8" styleClass="form-field" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                            <Label styleClass="field-label" text="Port" />
+                            <TextField fx:id="printerPortField" promptText="9100" styleClass="input-field" />
+                        </VBox>
+                        
+                        <!-- Nom de l'imprimante -->
+                        <VBox spacing="8" styleClass="form-field" GridPane.columnIndex="0" GridPane.rowIndex="2">
+                            <Label styleClass="field-label" text="Nom de l'Imprimante" />
+                            <TextField fx:id="printerNameField" promptText="Imprimante CICOR" styleClass="input-field" />
+                        </VBox>
+                        
+                        <!-- Type de connexion -->
+                        <VBox spacing="8" styleClass="form-field" GridPane.columnIndex="0" GridPane.rowIndex="3">
+                            <Label styleClass="field-label" text="Type de Connexion" />
+                            <ComboBox fx:id="connectionTypeCombo" promptText="Sélectionnez le type" styleClass="combo-box" />
+                        </VBox>
+                        
+                        <rowConstraints>
+                            <RowConstraints maxHeight="74.0" minHeight="41.999996185302734" prefHeight="56.999996185302734" />
+                            <RowConstraints maxHeight="118.00000381469727" minHeight="59.333333333333314" prefHeight="59.333333333333314" />
+                            <RowConstraints maxHeight="124.0" minHeight="53.99998474121094" prefHeight="59.0" />
+                            <RowConstraints maxHeight="150.00001525878906" minHeight="85.0" prefHeight="145.66666666666666" />
+                        </rowConstraints>
+                  <columnConstraints>
+                     <ColumnConstraints />
+                  </columnConstraints>
+                        
+                    </GridPane>
+                    
+                    <!-- Boutons de test -->
+                    <VBox prefHeight="66.0" prefWidth="400.0" spacing="15" styleClass="test-section">
+                        <Label styleClass="section-title" text="🧪 Tests de Connexion" />
+                        <HBox alignment="CENTER" spacing="15">
+                            <Button fx:id="testButton" onAction="#handleTest" styleClass="btn-test" text="🔗 Tester Connexion" />
+                            <Button onAction="#handleTestPrint" styleClass="btn-test" text="🖨️ Test Impression" />
+                        </HBox>
+                    </VBox>
+                </VBox>
+                
+                <!-- Résultats et actions -->
+                <VBox prefWidth="400" spacing="20" styleClass="results-section">
+                    
+                    <!-- Résultats des tests -->
+                    <VBox prefHeight="327.0" prefWidth="400.0" spacing="15" styleClass="results-container" VBox.vgrow="ALWAYS">
+                        <Label styleClass="section-title" text="📊 Résultats des Tests" />
+                        <TextArea fx:id="testResultArea" editable="false" prefHeight="280.0" prefRowCount="8" prefWidth="400.0" promptText="Les résultats des tests apparaîtront ici..." styleClass="results-area" />
+                    </VBox>
+                    
+                    <!-- Actions -->
+                    <VBox spacing="15" styleClass="actions-container">
+                        <VBox spacing="10">
+                            <HBox spacing="10">
+                                <Button onAction="#handleLoadConfig" styleClass="btn-secondary" text="📂 Charger" />
+                                <Button onAction="#handleExportConfig" styleClass="btn-secondary" text="📤 Exporter" />
+                                <Button onAction="#handleResetSettings" styleClass="btn-warning" text="🔄 Réinitialiser" />
+                                <Button fx:id="saveButton" onAction="#handleSave" styleClass="btn-primary" text="💾 Enregistrer" />
+                            </HBox>
+                        </VBox>
+                    </VBox>
+                    
+                </VBox>
+                
+            </HBox>
+            
+        </VBox>
+        
+    </VBox>
+    
+</StackPane>

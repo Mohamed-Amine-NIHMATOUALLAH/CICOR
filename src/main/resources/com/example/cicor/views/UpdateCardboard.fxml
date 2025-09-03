@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane prefHeight="400" prefWidth="600" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cicor.Controllers.UpdateCardboardController">
+
+    <!-- Header -->
+    <top>
+        <AnchorPane prefHeight="70" prefWidth="600.0" style="-fx-background-color: #113F67;">
+            <children>
+                <HBox prefHeight="33.0" prefWidth="608.0">
+                    <children>
+                        <!-- Logo -->
+                        <ImageView fitHeight="69.0" fitWidth="78.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../images/logo-cicor.png" />
+                            </image>
+                            <HBox.margin>
+                                <Insets bottom="15.0" left="30.0" right="100.0" top="15.0" />
+                            </HBox.margin>
+                        </ImageView>
+
+                        <!-- Update Icon -->
+                        <ImageView fitHeight="41.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../images/update_icon-removebg-preview.png" />
+                            </image>
+                            <HBox.margin>
+                                <Insets top="20.0" />
+                            </HBox.margin>
+                        </ImageView>
+
+                        <!-- Title -->
+                        <Label text=" Update Carton" textFill="WHITE">
+                            <font>
+                                <Font name="Arial Black" size="20" />
+                            </font>
+                            <HBox.margin>
+                                <Insets top="20.0" />
+                            </HBox.margin>
+                        </Label>
+                    </children>
+                </HBox>
+            </children>
+        </AnchorPane>
+    </top>
+
+    <!-- Center Form -->
+    <center>
+        <GridPane alignment="CENTER" hgap="15" vgap="15">
+            <padding>
+                <Insets bottom="20" left="20" right="20" top="20" />
+            </padding>
+
+            <!-- Carton Number (read-only) -->
+            <Label text="Carton Number:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+            <TextField fx:id="cartonNumberField" promptText="Carton number" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+            <!-- Category -->
+            <Label text="Category:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+            <ComboBox fx:id="categoryComboBox" prefWidth="200" promptText="Select Category" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+            <!-- Manufacture Date -->
+            <Label text="Manufacture Date:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+            <TextField fx:id="manufactureDateField" editable="false" promptText="Auto-generated"
+                       GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+            <!-- Quantity -->
+            <Label text="Quantity:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+            <TextField fx:id="quantityField" promptText="0 - 120" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+
+            <columnConstraints>
+                <ColumnConstraints />
+                <ColumnConstraints />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints />
+                <RowConstraints />
+                <RowConstraints />
+                <RowConstraints />
+            </rowConstraints>
+        </GridPane>
+    </center>
+
+    <!-- Footer -->
+    <bottom>
+        <HBox alignment="CENTER" prefHeight="70" spacing="20">
+            <padding>
+                <Insets bottom="15" left="30" right="30" top="15" />
+            </padding>
+            <children>
+                <Button onAction="#handleUpdate" prefHeight="35" prefWidth="120" style="-fx-background-color: #2580c5; -fx-text-fill: white; -fx-font-weight: bold;" text="🔄 Update" />
+
+                <Button onAction="#handleCancel" prefHeight="35" prefWidth="120" style="-fx-background-color: #E14434; -fx-text-fill: white; -fx-font-weight: bold;" text="❌ Cancel" />
+            </children>
+        </HBox>
+    </bottom>
+
+</BorderPane>

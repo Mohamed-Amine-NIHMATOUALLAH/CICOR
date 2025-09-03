@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane prefHeight="650" prefWidth="1100" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cicor.Controllers.UserDashboardController">
+
+    <!-- Header -->
+    <top>
+        <AnchorPane prefHeight="90.0" style="-fx-background-color: #113F67;">
+            <children>
+                <HBox alignment="CENTER_LEFT" spacing="20" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="10.0">
+                    <children>
+                        <ImageView fitHeight="70.0" preserveRatio="true">
+                            <image>
+                                <Image url="@../images/logo-cicor.png" />
+                            </image>
+                            <HBox.margin>
+                                <Insets bottom="10.0" left="10.0" right="150.0" top="10.0" />
+                            </HBox.margin>
+                        </ImageView>
+                        <ImageView fitHeight="46.0" fitWidth="65.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../images/user-sign-white-icon.png" />
+                            </image>
+                        </ImageView>
+                        <Label prefHeight="29.0" prefWidth="413.0" text="User Panel - Carton Management" textFill="WHITE">
+                            <font>
+                                <Font name="Arial Black" size="20.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </HBox>
+
+                <Button onAction="#log_Out" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color: transparent; -fx-text-fill: #E14434;                                -fx-font-weight: bold; -fx-border-color: #E14434;                                -fx-border-radius: 6; -fx-border-width: 2;" text="Log out" AnchorPane.bottomAnchor="39.666666666666664" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="25.0" />
+            </children>
+        </AnchorPane>
+    </top>
+
+    <!-- Table -->
+    <center>
+        <AnchorPane>
+            <children>
+                <TableView fx:id="cartonsTable" layoutX="30" layoutY="20" prefHeight="450" prefWidth="1030" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="20.0">
+
+                    <columns>
+                        <TableColumn fx:id="cartonNumberColumn" prefWidth="150" text="Carton Number" />
+                        <TableColumn fx:id="categoryColumn" prefWidth="180" text="Category" />
+                        <TableColumn fx:id="dateColumn" prefWidth="150" text="Manufacturing Date" />
+                        <TableColumn fx:id="quantityColumn" prefWidth="100" text="Capacity" />
+                        <!-- 🆕 Filled Quantity Column -->
+                        <TableColumn fx:id="filledColumn" prefWidth="120" text="Filled Quantity" />
+
+                        <!-- Action Columns -->
+                        <TableColumn fx:id="actionsColumnOpenBoxes" prefWidth="200" text="" />
+                        <TableColumn fx:id="actionsColumnExportExcel" prefWidth="200" text="" />
+                        <TableColumn fx:id="actionsColumnPrintTicket" prefWidth="200" text="" />
+                    </columns>
+                </TableView>
+            </children>
+        </AnchorPane>
+    </center>
+
+    <!-- Footer -->
+    <bottom>
+        <HBox alignment="CENTER" prefHeight="80" spacing="20">
+            <children>
+                <Button onAction="#handleAddCarton" prefHeight="35" prefWidth="160" style="-fx-background-color: #28a745; -fx-text-fill: white;                                -fx-font-weight: bold;" text="➕ New Carton">
+                    <font>
+                        <Font name="System Bold" size="12.0" />
+                    </font></Button>
+                <Button onAction="#handleUpdateCarton" prefHeight="35" prefWidth="160" style="-fx-background-color: #2580c5; -fx-text-fill: white;                                -fx-font-weight: bold;" text="Update Carton">
+                    <font>
+                        <Font name="System Bold" size="12.0" />
+                    </font></Button>
+                <Button onAction="#handleRefresh" prefHeight="35" prefWidth="160.0" style="-fx-background-color: #113F67; -fx-text-fill: white;                                -fx-font-weight: bold;" text="🔄 Refresh">
+                    <font>
+                        <Font name="System Bold" size="12.0" />
+                    </font></Button>
+            </children>
+        </HBox>
+    </bottom>
+
+</BorderPane>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane prefHeight="500" prefWidth="900" stylesheets="@../styles/login_page.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cicor.Controllers.LoginController">
+
+  <!-- Panel Gauche -->
+  <left>
+    <AnchorPane prefWidth="300" styleClass="left-pane">
+      <children>
+        <ImageView fitHeight="120" fitWidth="260" layoutX="20" layoutY="180" preserveRatio="true">
+          <image>
+            <Image url="@../images/logo-cicor.png" />
+          </image>
+        </ImageView>
+      </children>
+    </AnchorPane>
+  </left>
+
+  <!-- Panel Centre -->
+  <center>
+    <AnchorPane>
+      <children>
+        <VBox alignment="CENTER" layoutX="90.0" layoutY="63.0" prefHeight="351.0" prefWidth="400" spacing="30.0" AnchorPane.leftAnchor="90.0" AnchorPane.rightAnchor="110.0">
+
+          <!-- Titre + Icon -->
+          <HBox alignment="CENTER" spacing="10">
+            <ImageView fitHeight="50" fitWidth="50" preserveRatio="true">
+              <image>
+                <Image url="@../images/icon-login.png" />
+              </image>
+            </ImageView>
+            <Label styleClass="title-label" text="Bienvenue" />
+          </HBox>
+
+          <!-- Champ Username -->
+          <TextField fx:id="Username" promptText="Nom d'utilisateur" styleClass="input-field" />
+
+          <!-- Champ Password -->
+          <PasswordField fx:id="passwd" promptText="Mot de passe" styleClass="input-field" />
+
+          <!-- Bouton Login -->
+          <Button maxWidth="1.7976931348623157E308" onAction="#login" prefHeight="35.0" prefWidth="400.0" styleClass="btn-primary" text="Connexion" />
+
+          <!-- Bouton Quitter -->
+          <Button maxWidth="1.7976931348623157E308" onAction="#CloseProgram" prefHeight="35.0" prefWidth="400.0" styleClass="btn-danger" text="Quitter" />
+        </VBox>
+      </children>
+    </AnchorPane>
+  </center>
+</BorderPane>

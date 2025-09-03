@@ -1,0 +1,51 @@
+.root {
+    -fx-font-family: "Segoe UI", "Arial";
+}
+
+/* Panel Gauche */
+.left-pane {
+    -fx-background-color: linear-gradient(to bottom, #113F67, #34699A);
+}
+
+/* Titre */
+.title-label {
+    -fx-font-size: 36px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #113F67;
+}
+
+/* Champs de saisie */
+.input-field {
+    -fx-pref-height: 40px;
+    -fx-font-size: 16px;
+    -fx-background-radius: 8px;
+    -fx-border-radius: 8px;
+    -fx-border-color: #cccccc;
+    -fx-padding: 0 10 0 10;
+}
+
+/* Bouton principal */
+.btn-primary {
+    -fx-background-color: #113F67;
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 8px;
+    -fx-cursor: hand;
+}
+.btn-primary:hover {
+    -fx-background-color: #34699A;
+}
+
+/* Bouton quitter */
+.btn-danger {
+    -fx-background-color: #E14434;
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 8px;
+    -fx-cursor: hand;
+}
+.btn-danger:hover {
+    -fx-background-color: #C0392B;
+}
