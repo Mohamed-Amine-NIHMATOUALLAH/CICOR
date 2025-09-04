@@ -1,162 +1,245 @@
-# CICOR - Système de Gestion des Articles et Cartons
+# CICOR - Articles and Cartons Management System
 
-## Table des matières
-
+## 📋 Table of Contents
 - [Description](#description)
-- [Fonctionnalités principales](#fonctionnalités-principales)
-- [Prérequis](#prérequis)
-- [Technologies utilisées](#technologies-utilisées)
-- [Installation et configuration](#installation-et-configuration)
-- [Structure du projet](#structure-du-projet)
-- [Démarrage de l'application](#démarrage-de-lapplication)
-- [Gestion de la base de données](#gestion-de-la-base-de-données)
-- [Problèmes courants](#problèmes-courants)
-- [Contact](#contact)
-- [Licence](#licence)
+- [✨ Features](#features)
+- [⚙️ Prerequisites](#prerequisites)
+- [🛠️ Technologies Used](#technologies-used)
+- [🚀 Quick Installation](#quick-installation)
+- [📖 Detailed Installation Guide](#detailed-installation-guide)
+- [🏗️ Project Structure](#project-structure)
+- [🎯 Starting the Application](#starting-the-application)
+- [🐛 Troubleshooting](#troubleshooting)
+- [📞 Contact](#contact)
+- [📜 License](#license)
 
-## Description
+## 🏭 Description
 
-CICOR est une applicatsion JavaFX complète pour la gestion des articles et des cartons au sein de l'entreprise Cicor Berrechid (anciennement Éolane). Cette solution modernise les processus de production en automatisant la traçabilité des articles, la gestion des cartons, l'impression d'étiquettes et la génération de rapports.
+CICOR is a comprehensive JavaFX application designed to modernize **Cicor Berrechid** (formerly Éolane) article and carton management. This industrial solution automates production processes with full traceability.
 
-L'application permet de :
-- Scanner et valider des adresses MAC d'articles
-- Gérer les catégories de produits
-- Créer et suivre des cartons de production
-- Imprimer des étiquettes avec code-barres
-- Générer des rapports Excel détaillés
-- Configurer des imprimantes réseau
+**Main capabilities:**
+- ✅ Scan and validate article MAC addresses in real time
+- ✅ Manage product categories with hardware/software versions
+- ✅ Create and track production cartons with automatic numbering
+- ✅ Print professional labels with barcodes
+- ✅ Generate detailed Excel reports for analysis
+- ✅ Easily configure network printers
 
-## Fonctionnalités principales
+## ✨ Features
 
-- 🔐 **Authentification sécurisée** avec deux profils (Administrateur et Utilisateur)
-- 📦 **Gestion des cartons** avec numérotation automatique et calcul de la date de fabrication
-- 📱 **Scan d'articles** avec validation en temps réel des adresses MAC
-- 🖨️ **Impression d'étiquettes** avec support des imprimantes CAB
-- 📊 **Export de rapports** en format Excel avec mise en forme professionnelle
-- ⚙️ **Configuration avancée** des paramètres d'impression et de connexion base de données
+### 🔐 Security & Access
+- **Two-level authentication**: Administrator and User with different permissions
+- **Secure interface** with real-time data validation
 
-## Prérequis
+### 📦 Cart Management
+- Automatic numbering (YYYYMMDDNNNN format)
+- Automatic calculation of manufacturing date
+- Real-time capacity and filling tracking
+- Color-coded status (green/red) for cartons
 
-- Java 17 ou supérieur
-- MySQL 8.0 ou supérieur
-- Maven 3.6 ou supérieur
-- XAMPP (recommandé pour MySQL)
+### 📱 Intelligent Scanning
+- Instant MAC address validation (format, uniqueness, capacity)
+- Audio-visual feedback for each operation
+- Duplicate prevention and automatic capacity control
 
-## Technologies utilisées
+### 🖨️ Professional Printing
+- Support for network CAB printers
+- Generates ZPL/EPL codes for labels
+- Easy configuration via GUI
 
-- **Java 17** : Langage de programmation principal
-- **JavaFX 17** : Framework d'interface utilisateur
-- **MySQL 8.0** : Base de données relationnelle
-- **Maven** : Gestion des dépendances et build
-- **HikariCP** : Pool de connexions à la base de données
-- **Apache POI** : Génération de fichiers Excel
-- **Commons Net** : Communication avec les imprimantes réseau
+### 📊 Advanced Reporting
+- Excel export with professional formatting
+- Complete metadata and detailed article list
+- Compatible with industrial standards
 
-## Installation et configuration
+## ⚙️ Prerequisites
 
-### 1. Cloner le dépôt
+**Operating System:** Windows 10/11, macOS 10.15+, or Ubuntu 18.04+  
 
+**Required Software:**
+- ☕ **Java 17+** ([Download](https://adoptium.net/))
+- 🐬 **MySQL 8.0+** ([XAMPP recommended](https://www.apachefriends.org/))
+- 📦 **Maven 3.6+** ([Download](https://maven.apache.org/))
+- 🔧 **Git** ([Download](https://git-scm.com/))
+
+## 🛠️ Technologies Used
+
+| Technology | Version | Purpose |
+|------------|---------|--------|
+| **Java** | 17+ | Main language |
+| **JavaFX** | 17.0.2 | Modern UI |
+| **MySQL** | 8.0+ | Database |
+| **Maven** | 3.6+ | Build management |
+| **HikariCP** | 5.0.1 | Database connection pool |
+| **Apache POI** | 5.2.3 | Excel export |
+| **Commons Net** | 3.8.0 | Printer communication |
+
+## 🚀 Quick Installation (5 minutes)
+
+### 1. Clone the project
 ```bash
 git clone https://github.com/Mohamed-Amine-NIHMATOUALLAH/CICOR.git
 cd CICOR
+````
+
+### 2. Set up the database
+
+* Start XAMPP and launch MySQL
+* Import `cicor_db.sql` via phpMyAdmin
+
+### 3. Run the application
+
+```bash
+mvn clean compile
+mvn javafx:run
 ```
 
-### 2. Configuration de la base de données
+### 4. Login
 
-- Démarrer XAMPP et activer MySQL
-- Importer le fichier `cicor_db.sql` dans phpMyAdmin ou MySQL Workbench
+* **Admin**: `admin` / `admin`
+* **User**: `user` / `user`
 
-### 3. Configuration de l'application
+## 📖 Detailed Installation Guide
 
-Le projet utilise un fichier de configuration pour la base de données. Assurez-vous que les paramètres de connexion dans la classe `DatabaseManager` correspondent à votre environnement :
+### Step 1: Install prerequisites
+
+#### Install Java 17
+
+1. Download from [adoptium.net](https://adoptium.net/)
+2. Verify installation:
+
+```bash
+java --version
+# Should show "openjdk 17" or similar
+```
+
+#### Install XAMPP
+
+1. Download from [apachefriends.org](https://www.apachefriends.org/)
+2. Install and start the control panel
+3. Run **MySQL** and **Apache**
+
+#### Install Maven
+
+1. Download from [maven.apache.org](https://maven.apache.org/)
+2. Add to PATH and verify:
+
+```bash
+mvn --version
+```
+
+### Step 2: Configure the database
+
+1. Open phpMyAdmin: [http://localhost/phpmyadmin](http://localhost/phpmyadmin)
+2. Create a database named `cicor_db` with collation `utf8_general_ci`
+3. Import `cicor_db.sql` file from the project
+
+### Step 3: Configure the application
+
+Database connection settings are in `DatabaseManager.java`:
 
 ```java
 static final String DB_URL = "jdbc:mysql://localhost:3306/cicor_db";
 static final String USER = "root";
-private static final String PASS = "";
+private static final String PASS = ""; // Add password if any
 ```
 
-### 4. Compilation avec Maven
+### Step 4: Compile and run
 
 ```bash
+# Compile
 mvn clean compile
-```
 
-### 5. Exécution de l'application
+# Build JAR (optional)
+mvn clean package
 
-```bash
+# Run
 mvn javafx:run
+
+# Or via JAR
+java -jar target/CICOR-1.0-SNAPSHOT-jar-with-dependencies.jar
 ```
 
-## Structure du projet
+## 🏗️ Project Structure
 
 ```
 CICOR/
 ├── src/main/java/com/example/cicor/
-│   ├── Controllers/          # Contrôleurs JavaFX
-│   ├── database/             # Accès aux données (DAO)
-│   ├── models/               # Modèles de données
-│   └── services/             # Services métier
-├── src/main/resources/
-│   └── com/example/cicor/
-│       ├── images/           # Images de l'interface
-│       ├── sounds/           # Sons d'alerte
-│       ├── styles/           # Feuilles de style CSS
-│       └── views/            # Fichiers FXML des interfaces
-├── cicor_db.sql              # Script de création de la base
-└── pom.xml                   # Configuration Maven
+│   ├── Controllers/       # UI controllers
+│   ├── database/          # Data access (DAO)
+│   ├── models/            # Data models
+│   └── services/          # Business logic
+├── src/main/resources/com/example/cicor/
+│   ├── images/            # Visual resources
+│   ├── sounds/            # Alert sounds
+│   ├── styles/            # CSS styles
+│   └── views/             # FXML files
+├── cicor_db.sql           # Database schema
+├── pom.xml                # Maven config
+└── README.md              # Documentation
 ```
 
-## Démarrage de l'application
+## 🎯 Starting the Application
 
-1. **Lancer XAMPP** et démarrer le service MySQL
-2. **Exécuter l'application** avec la commande Maven :
-   ```bash
-   mvn javafx:run
-   ```
-3. **Se connecter** avec les identifiants par défaut :
-    - Administrateur : `admin` / `admin`
-    - Utilisateur : `user` / `user`
+1. Start XAMPP and ensure MySQL is running
+2. Open terminal in project folder
+3. Run:
 
-## Gestion de la base de données
+```bash
+mvn clean compile
+mvn javafx:run
+```
 
-La base de données `cicor_db` contient les tables suivantes :
-- `categories` : Catégories de produits
-- `cardboard` : Cartons de production
-- `article` : Articles avec adresses MAC
-- (voir le script SQL pour le schéma complet)
+4. Login:
 
-Pour recréer la base de données :
-1. Ouvrir phpMyAdmin
-2. Créer une nouvelle base nommée `cicor_db`
-3. Importer le fichier `cicor_db.sql`
+* **Admin**: `admin` / `admin` (category management)
+* **User**: `user` / `user` (daily operations)
 
-## Problèmes courants
+**Typical workflow:**
 
-### Erreur de connexion à la base de données
-- Vérifier que MySQL est démarré
-- Confirmer les paramètres de connexion dans `DatabaseManager.java`
+1. Admin creates product categories
+2. User creates cartons and scans articles
+3. Generate labels and reports
+4. Export data for analysis
 
-### Erreur de dépendances Maven
-- Exécuter `mvn clean install` pour rafraîchir les dépendances
+## 🐛 Troubleshooting
 
-### Erreur JavaFX
-- Vérifier que Java 17+ est installé
-- Confirmer que le module JavaFX est correctement configuré
+* **MySQL connection failed**: Check XAMPP MySQL status, verify `DatabaseManager.java` settings, test connection with:
 
-## Contact
+```bash
+mysql -u root -p -h localhost
+```
 
-Développé par Mohamed Amine Nihmatouallah.
+* **JavaFX not found**: Ensure Java 17+ installed with JavaFX modules
+* **Maven dependencies**:
 
-Pour toute question ou demande d'information :
-- Email : [mohamed.amine.nihmatouallah@gmail.com](mailto:mohamed.amine.nihmatouallah@gmail.com)
-- LinkedIn : [Mohamed Amine NIHMATOUALLAH](https://www.linkedin.com/in/mohamed-amine-nihmatouallah/)
+```bash
+mvn clean install
+mvn dependency:resolve
+```
 
-## Licence
+* Application not starting: Restart XAMPP, re-import database, or clone project again
 
-Ce projet est protégé par le droit d'auteur. Toute utilisation, modification ou distribution du code est strictement interdite sans autorisation explicite de l'auteur.
+## 📞 Contact
 
-Le code peut être utilisé uniquement à des fins de test personnel, d'éducation ou d'évaluation.
+**Developer:** Mohamed Amine Nihmatouallah
+**Email:** [mohamed.amine.nihmatouallah@gmail.com](mailto:mohamed.amine.nihmatouallah@gmail.com)
+**LinkedIn:** [Mohamed Amine NIHMATOUALLAH](https://www.linkedin.com/in/mohamed-amine-nihmatouallah/)
 
-Pour plus de détails, voir le fichier [LICENSE](./LICENSE).  
-Pour des demandes d'autorisation, contactez [mohamed.amine.nihmatouallah@gmail.com](mailto:mohamed.amine.nihmatouallah@gmail.com).
+## 📜 License
+
+© 2025 Mohamed Amine Nihmatouallah. All rights reserved.
+
+**Allowed:**
+
+* Personal testing
+* Academic purposes
+* Non-commercial demonstrations
+
+**Not allowed without permission:**
+
+* Commercial use
+* Modification and redistribution
+* Integration into other projects
+
+See [LICENSE](./LICENSE) for full details.
